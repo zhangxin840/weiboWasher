@@ -1,0 +1,27 @@
+﻿{
+  "name": "微博洗刷刷",
+  "version": "1.0",
+  "description": "新浪微博去广告插件。使用方便，无需设置，不改变微博原貌。",
+  "background": { "scripts": ["background.js"] },
+  "permissions" : [
+    "tabs",
+	"http://*.zhangxinweb.cn/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["http://*.weibo.com/*"],
+      "js": ["jquery.js", "contentScript.js"]
+    }
+  ],
+  "page_action" :
+  {
+    "default_icon" : "icon-19.png",
+    "default_title" : "微博洗刷刷",
+	"default_popup": "popup.html"
+  },
+  "icons" : {
+    "48" : "icon-48.png",
+    "128" : "icon-128.png"
+  },
+  "manifest_version": 2
+}

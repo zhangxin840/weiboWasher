@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta name="description" content="新浪微博去广告插件" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+		<meta charset=utf-8 />
+		<title>微博洗刷刷</title>
+		<style>
+			body {
+				font-family: "微软雅黑";
+				margin: 0px;
+
+
+				background: -webkit-gradient(linear, 0% 60%, 0% 100%, from(#FFFFFF), to(#FFe4e4))
+			}
+			
+			
+			
+			#popupContainer{
+				background-image: url("background-small.png");
+				background-repeat: no-repeat;
+				background-position: right bottom;
+				min-width: 250px;
+				min-height: 250px;
+				padding:15px;
+			}
+			
+			#popupContainer p{
+				margin: 0  0 5px 0; 
+			}
+			
+			.js-template {
+				display: none;
+			}
+
+			#share {
+				position: absolute;
+				bottom: 5px;
+				left: 15px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="popupContainer">
+			<div>
+				<p>
+					屏蔽内容：
+				</p>
+			</div>
+			<div id="options">
+				<div class="js-optionContainer js-template">
+					<label for="optionName">DisplayName</label>
+					<input name="optionName" type="checkbox">
+				</div>
+			</div>
+			<div id="share">
+				<a href="http://v.t.sina.com.cn/share/share.php?&url=http://www.zhangxinweb.cn&title=测试&pic=https://lh6.googleusercontent.com/rEDxMb-tqOadeLT457xEim5CcHjCUukp2I-YNrHZOHejDxR1TO8tWU7CcMthSVmt1guz_gBFhA=s640-h400-e365-rw&ralateUid=1955199891" target="_blank"> <img src="shareButton.gif"/> </a>
+			</div>
+		</div>
+
+		<script src="jquery.js"></script>
+		<script src="popup.js"></script>
+	</body>
+</html>
