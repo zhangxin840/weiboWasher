@@ -5,7 +5,7 @@
 	"background": {
 		"scripts": ["background.js"]
 	},
-	"permissions": ["tabs", "http://*.zhangxinweb.cn/*"],
+	"permissions": ["tabs", "https://*.github.com/zhangxin840/*"],
 	"content_security_policy": "script-src 'self' https://ssl.google-analytics.com; object-src 'self'",
 	"content_scripts": [
 		{

@@ -1,8 +1,8 @@
 var pluginSettings = {
 	optionPerfix : "options_",
 	storageLastUpdated : "lastUpdated",
-	updatePeriod : 86400000, // 86400000 equles one day
-	updateUrl : "http://www.zhangxinweb.cn/projects/weiboAdBlocker/data/settings.json",
+	updatePeriod : 100, // 86400000 equles one day
+	updateUrl : "https://raw.github.com/zhangxin840/weiboWasher/master/data/settings.json",
 	preview : false,
 	blockOnInterval : false
 };
@@ -112,10 +112,10 @@ var checkOptions = [{
 }];
 
 var settings = {
-	pluginSettings: pluginSettings,
-	blockSelectors: blockSelectors,
-	checkOptions: checkOptions
-}
+	pluginSettings : pluginSettings,
+	blockSelectors : blockSelectors,
+	checkOptions : checkOptions
+};
 
 var checkNeedUpdate = function() {
 	var storage = localStorage;
@@ -136,11 +136,69 @@ var checkNeedUpdate = function() {
 				needUpdate = false;
 			}
 		}
-	} else {
-		storage[pluginSettings.storageLastUpdated] = now.toString();
 	}
 
 	return needUpdate;
+};
+
+var saveSettingsToLocal = function() {
+	var storage = localStorage;
+	var settingsKey = "settings";
+
+	if ( typeof settings !== "object") {
+		throw "settings data error";
+	}
+	if (!storage) {
+		throw "localStorage not available.";
+	}
+
+	localStorage[settingsKey] = JSON.stringify(settings);
+};
+
+var getSettingsFromLocal = function() {
+	var settingsKey = "settings";
+	var parsedSettings;
+	var storage = localStorage;
+
+	if (!storage) {
+		throw "localStorage not available.";
+	}
+
+	if (!storage[settingsKey]) {
+		return;
+	}
+
+	try {
+		parsedSettings = JSON.parse(storage[settingsKey]);
+	} catch(e) {
+		throw "Can not parse settings data."
+	}
+
+	if (parsedSettings) {
+		settings = parsedSettings;
+	}
+};
+
+var updateSettings = function() {
+	var xhr = new XMLHttpRequest();
+	var result;
+	
+	xhr.open("GET", pluginSettings.updateUrl, true);
+	xhr.onreadystatechange = function() {
+		if (xhr.readyState == 4) {
+			try{
+				result = JSON.parse(xhr.responseText);
+			}
+			catch(e){
+				throw "Update settings data error";
+			}
+			
+			setting = result;
+			saveOptionsToLocal();
+			storage[pluginSettings.storageLastUpdated] = now.toString();
+		}
+	}
+	xhr.send();
 };
 
 var saveOptionsToLocal = function() {
@@ -213,25 +271,31 @@ var getSelectors = function() {
 	return selectors;
 };
 
-// Show icon
-var checkForValidUrl = function(tabId, changeInfo, tab) {
-	if (tab.url.match(/weibo.com/)) {
-		chrome.pageAction.show(tabId);
+var initialize = function() {
+	getSettingsFromLocal();
+	saveOptionsToLocal();
+
+	if (checkNeedUpdate()) {
+		updateSettings();
 	}
+
+	chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
+		var selectors = getSelectors();
+
+		sendResponse({
+			settings : pluginSettings,
+			selectors : selectors
+		});
+	});
+
+	chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+		if (tab.url.match(/weibo.com/)) {
+			chrome.pageAction.show(tabId);
+		}
+	});
 };
 
-saveOptionsToLocal();
-
-chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
-	var selectors = getSelectors();
-
-	sendResponse({
-		settings : pluginSettings,
-		selectors : selectors
-	});
-});
-
-chrome.tabs.onUpdated.addListener(checkForValidUrl);
+initialize();
 
 // Google Analyse
 var _gaq = _gaq || [];
@@ -246,4 +310,3 @@ _gaq.push(['_trackPageview']);
 	var s = document.getElementsByTagName('script')[0];
 	s.parentNode.insertBefore(ga, s);
 })();
-

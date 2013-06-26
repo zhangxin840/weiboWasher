@@ -2,7 +2,7 @@
 	"pluginSettings": {
 		"optionPerfix": "options_",
 		"storageLastUpdated": "lastUpdated",
-		"updatePeriod": 86400000, // 86400000 equles one day
+		"updatePeriod": 86400000, 
 		"updateUrl": "http://www.zhangxinweb.cn/projects/weiboAdBlocker/data/settings.json",
 		"preview": false,
 		"blockOnInterval": false
