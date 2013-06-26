@@ -1,33 +1,59 @@
-var requestSelectors = function(){
-	chrome.runtime.sendMessage({greeting: "hello"}, function(response) {
-  		hideElements(response.selectors);
+var settings = {
+	preview : true,
+	blockOnInterval : true
+};
+
+var requestSelectors = function() {
+	chrome.runtime.sendMessage({}, function(response) {
+		settings = response.settings;
+		blockElements(response.selectors);
+
+		if (settings.blockOnInterval) {
+			setInterval(function() {
+				blockElements(response.selectors);
+			}, 1000);
+		}
 	});
 };
 
-var hideElements = function(selectors){
+var blockElements = function(selectors) {
 	var index;
 	var selector;
-	
-	console.log(selectors);
-	
-	for(index in selectors){
-		selector = selectors[index];
-		$(selector).hide();
+	var style;
+	var $target;
+
+	if (settings.preview) {
+		for (index in selectors) {
+			$target = $(selectors[index])
+			if ($target.attr("blocked") !== "true") {
+				$target.css({
+					position : "relative",
+					backgroundColor : "rgba(255, 0, 0, .6)"
+				}).attr("blocked", "true");
+
+				$("<div>").css({
+					position : "absolute",
+					backgroundColor : "rgba(255, 0, 0, .4)",
+					top : 0,
+					left : 0,
+					width : "100%",
+					height : "100%",
+					zindex : 10000
+				}).appendTo($target);
+			}
+		}
+		return;
 	}
+
+	style = '<style type="text/css">'
+	style += selectors.join(", \n") + '\n';
+	style += '{ display: none !important }';
+	style += '</style>';
+
+	$("body").append(style);
+
+	console.log(style);
 };
 
-
 requestSelectors();
-
-
-// chrome.runtime.onMessage.addListener(
-  // function(request, sender, sendResponse) {
-    // console.log(sender.tab ?
-                // "from a content script:" + sender.tab.url :
-                // "from the extension");
-    // if (request.greeting == "hello")
-      // sendResponse({farewell: "goodbye"});
-  // });
-//   
-
 

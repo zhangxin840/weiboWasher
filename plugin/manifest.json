@@ -1,7 +1,7 @@
 ﻿{
   "name": "微博洗刷刷",
   "version": "1.0",
-  "description": "新浪微博去广告插件。使用方便，无需设置，不改变微博原貌。",
+  "description": "新浪微博去广告插件。防止广告泄露隐私，还可以屏蔽自己不感兴趣的内容。小巧方便，无需繁琐设置，不改变微博原貌。开源插件，安全可靠",
   "background": { "scripts": ["background.js"] },
   "permissions" : [
     "tabs",

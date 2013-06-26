@@ -1,5 +1,6 @@
 var storagePerfix = "options_";
 
+// Sample data
 var checkOptions = [{
 	name : "recommend",
 	displayName : "推荐内容",
@@ -18,16 +19,21 @@ var generateOptions = function() {
 
 	for (index in options) {
 		option = options[index];
-		newOption = $("#options .js-optionContainer.js-template").clone().removeClass("js-template");
-		newOption.find("label").attr("for", option.name);
-		newOption.find("label").html(option.displayName);
-		if (option.checked) {
-			newOption.find("input").prop('checked', true);
+
+		if (!option.name || ( typeof option.checked === "undefined") || !option.displayName) {
+			console.log("Option data error");
 		} else {
-			newOption.find("input").prop('checked', false);
+			newOption = $("#options .js-optionContainer.js-template").clone().removeClass("js-template");
+			newOption.find("label").attr("for", option.name);
+			newOption.find("label").html(option.displayName);
+			if (option.checked) {
+				newOption.find("input").prop('checked', true);
+			} else {
+				newOption.find("input").prop('checked', false);
+			}
+			newOption.find("input").attr("name", option.name);
+			$("#options").append(newOption);
 		}
-		newOption.find("input").attr("name", option.name);
-		$("#options").append(newOption);
 	}
 };
 
@@ -82,11 +88,52 @@ var syncLocalSettings = function() {
 	}
 };
 
-// var sendBackToPlugin = function() {
-// chrome.runtime.sendMessage(blockSettings.checkOptions, function(response) {
-//
-// });
-// };
+var getLoaclOptions = function() {
+	var reg = new RegExp('^' + storagePerfix);
+	var storage = localStorage;
+	var options = [];
+	var option;
+	var name;
+	var innerIndex;
+
+	if (!storage) {
+		throw "localStorage not available.";
+	}
+
+	for (key in localStorage) {
+		if (reg.test(key)) {
+			if (key.indexOf("_displayName") < 0) {
+				option = {};
+				name = key.split("_")[1];
+				
+				option["name"] = name;
+				if (storage[key] === "true") {
+					option["checked"] = true;
+				} else if (storage[key] === "false") {
+					option["checked"] = false;
+				}
+				
+				options.push(option);
+			}
+
+		}
+	}
+
+	for (key in localStorage) {
+		if (reg.test(key) && key.indexOf("_displayName") >= 0) {
+			name = key.split("_")[1];
+			for (innerIndex in options) {
+				if (options[innerIndex].name === name) {
+					options[innerIndex].displayName = localStorage[key];
+				}
+			}
+
+		}
+	}
+
+	checkOptions = options;
+};
+
 var setupOptions = function() {
 	var $options = $(".js-optionContainer").not(".js-template");
 
@@ -96,7 +143,6 @@ var setupOptions = function() {
 var optionCheckChanged = function() {
 	var storage = localStorage;
 	var fullName = storagePerfix + $(this).attr("name");
-	var options = checkOptions;
 
 	if (!storage) {
 		throw "localStorage not available.";
@@ -110,8 +156,7 @@ var optionCheckChanged = function() {
 	}
 };
 
-//checkNeedUpdate();
-syncLocalSettings();
+getLoaclOptions();
 generateOptions();
 setupOptions();
 
