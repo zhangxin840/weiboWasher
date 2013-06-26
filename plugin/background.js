@@ -1,7 +1,7 @@
 var pluginSettings = {
 	optionPerfix : "options_",
 	storageLastUpdated : "lastUpdated",
-	updatePeriod : 86400000, // One day
+	updatePeriod : 86400000, // 86400000 equles one day
 	updateUrl : "http://www.zhangxinweb.cn/projects/weiboAdBlocker/data/settings.json",
 	preview : false,
 	blockOnInterval : false
@@ -111,6 +111,38 @@ var checkOptions = [{
 	forceUpdateValue : false
 }];
 
+var settings = {
+	pluginSettings: pluginSettings,
+	blockSelectors: blockSelectors,
+	checkOptions: checkOptions
+}
+
+var checkNeedUpdate = function() {
+	var storage = localStorage;
+	var last;
+	var now = new Date();
+	var lastString = storage[pluginSettings.storageLastUpdated];
+	var needUpdate = true;
+
+	if (!storage) {
+		throw "localStorage not available.";
+	}
+
+	if ( typeof lastString === "string") {
+		last = new Date(lastString);
+
+		if (Object.prototype.toString.call(last) === "[object Date]" && !isNaN(last.getTime())) {
+			if ((now - last) < pluginSettings.updatePeriod) {
+				needUpdate = false;
+			}
+		}
+	} else {
+		storage[pluginSettings.storageLastUpdated] = now.toString();
+	}
+
+	return needUpdate;
+};
+
 var saveOptionsToLocal = function() {
 	var index;
 	var option;
@@ -200,4 +232,18 @@ chrome.runtime.onMessage.addListener(function(request, sender, sendResponse) {
 });
 
 chrome.tabs.onUpdated.addListener(checkForValidUrl);
+
+// Google Analyse
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+	var ga = document.createElement('script');
+	ga.type = 'text/javascript';
+	ga.async = true;
+	ga.src = 'https://ssl.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0];
+	s.parentNode.insertBefore(ga, s);
+})();
 

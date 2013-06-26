@@ -37,57 +37,30 @@ var generateOptions = function() {
 	}
 };
 
-var checkNeedUpdate = function() {
-	var storage = localStorage;
-	var last;
-	var now = new Date();
-	var lastString = storage[pluginSettings.storageLastUpdated];
-	var needUpdate = true;
-
-	if (!storage) {
-		throw "localStorage not available.";
-	}
-
-	if ( typeof lastString === "string") {
-		last = new Date(lastString);
-
-		if (Object.prototype.toString.call(last) === "[object Date]" && !isNaN(last.getTime())) {
-			if ((now - last) < pluginSettings.updatePeriod) {
-				needUpdate = false;
-			}
-		}
-	} else {
-		storage[pluginSettings.storageLastUpdated] = now.toString();
-	}
-
-	return needUpdate;
-};
-
-var syncLocalSettings = function() {
-	var storage = localStorage;
-	var index;
-	var option;
-	var options = checkOptions;
-	var prefix = storagePerfix;
-	var fullName;
-
-	if (!storage) {
-		throw "localStorage not available.";
-	}
-
-	for (index in options) {
-		option = options[index];
-		fullName = prefix + option.name;
-
-		// localStorage store boolean as string
-		if (storage[fullName] === "true") {
-			option.checked = true;
-		} else if (storage[fullName] === "false") {
-			option.checked = false;
-		}
-	}
-};
-
+// var syncLocalSettings = function() {
+// var storage = localStorage;
+// var index;
+// var option;
+// var options = checkOptions;
+// var prefix = storagePerfix;
+// var fullName;
+//
+// if (!storage) {
+// throw "localStorage not available.";
+// }
+//
+// for (index in options) {
+// option = options[index];
+// fullName = prefix + option.name;
+//
+// // localStorage store boolean as string
+// if (storage[fullName] === "true") {
+// option.checked = true;
+// } else if (storage[fullName] === "false") {
+// option.checked = false;
+// }
+// }
+// };
 var getLoaclOptions = function() {
 	var reg = new RegExp('^' + storagePerfix);
 	var storage = localStorage;
@@ -105,14 +78,14 @@ var getLoaclOptions = function() {
 			if (key.indexOf("_displayName") < 0) {
 				option = {};
 				name = key.split("_")[1];
-				
+
 				option["name"] = name;
 				if (storage[key] === "true") {
 					option["checked"] = true;
 				} else if (storage[key] === "false") {
 					option["checked"] = false;
 				}
-				
+
 				options.push(option);
 			}
 
@@ -159,4 +132,29 @@ var optionCheckChanged = function() {
 getLoaclOptions();
 generateOptions();
 setupOptions();
+
+// Google Analyse
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+	var ga = document.createElement('script');
+	ga.type = 'text/javascript';
+	ga.async = true;
+	ga.src = 'https://ssl.google-analytics.com/ga.js';
+	var s = document.getElementsByTagName('script')[0];
+	s.parentNode.insertBefore(ga, s);
+})();
+
+// Track UI
+function trackUi(e) {
+    _gaq.push(['_trackEvent', e.target.getAttribute("name"), 'clicked']);
+};
+
+(function() {
+	$("[name]").click(trackUi);
+})();
+
+
 
