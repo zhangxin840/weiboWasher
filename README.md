@@ -19,9 +19,12 @@
 
 ####不改变微博原貌
 
+
 ####清理规则实时更新
 
+
 ####方便，开源，安全
+
 
 
 安装方法
@@ -48,6 +51,7 @@
 ![alt text][usage]
 
 
+
 参与开发
 ----------
 
@@ -56,6 +60,7 @@ data / settings.json 为实时更新的配置文件
 开发者可修改settings.json来更正过滤规则
 
 [Chrome扩展开发手册](https://developer.chrome.com/extensions/getstarted.html)
+
 
 
 作者
@@ -74,10 +79,11 @@ data / settings.json 为实时更新的配置文件
 QQ: 116943915
 
 
+
 支持
 ----------
 
-[微博分享](http://v.t.sina.com.cn/share/share.php?&url=https://github.com/zhangxin840/weiboWasher&title=微博洗刷刷： 去除微博中的广告，屏蔽自己不感兴趣的内容。小巧方便，无需繁琐设置，不改变微博原貌。开源插件，安全可靠。&pic=https://raw.github.com/zhangxin840/weiboWasher/master/img/weiboWasher-300.png&ralateUid=1955199891)
+[微博分享](http://v.t.sina.com.cn/share/share.php?&url=http://zhangxin840.github.io/weiboWasher/&title=微博洗刷刷： 去除微博中的广告，屏蔽自己不感兴趣的内容。小巧方便，无需繁琐设置，不改变微博原貌。开源插件，安全可靠。&pic=https://raw.github.com/zhangxin840/weiboWasher/master/img/weiboWasher-300.png&ralateUid=1955199891)
 
 [捐助作者](https://me.alipay.com/zhangxin840)
 
