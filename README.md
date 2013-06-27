@@ -1,17 +1,29 @@
-微博洗刷刷
+微博洗刷刷 
 ===========
 
-去广告
+![alt text][logo]
 
-隐藏不想要的栏目
 
-清理提示
+####清理微博中的广告
 
-不改变微博原貌
+![alt text][inline ad]
 
-清理规则实时更新
+####隐藏不想要的栏目
 
-方便，开源，安全
+![alt text][contents]
+
+####清理提示
+
+![alt text][notifications]
+
+
+####不改变微博原貌
+
+####清理规则实时更新
+
+####方便，开源，安全
+
+![alt text][usage]
 
 
 安装方法
@@ -40,6 +52,7 @@ data / settings.json 为实时更新的配置文件
 
 [Chrome扩展开发手册](https://developer.chrome.com/extensions/getstarted.html)
 
+
 作者
 ----------
 
@@ -56,5 +69,22 @@ data / settings.json 为实时更新的配置文件
 QQ: 116943915
 
 
+支持
+----------
 
+[微博分享](http://v.t.sina.com.cn/share/share.php?&url=https://github.com/zhangxin840/weiboWasher&title=微博洗刷刷： 去除微博中的广告，屏蔽自己不感兴趣的内容。小巧方便，无需繁琐设置，不改变微博原貌。开源插件，安全可靠。&pic=https://raw.github.com/zhangxin840/weiboWasher/master/img/weiboWasher-300.png&ralateUid=1955199891)
+
+[捐助作者](https://me.alipay.com/zhangxin840)
+
+
+
+[logo]: https://raw.github.com/zhangxin840/weiboWasher/master/img/weiboWasher-300.png "微博洗刷刷"
+
+[inline ad]: https://raw.github.com/zhangxin840/weiboWasher/master/img/inlineAds.jpg "微博中的广告"
+
+[contents]: https://raw.github.com/zhangxin840/weiboWasher/master/img/contents.jpg "不想要的栏目"
+
+[notifications]: https://raw.github.com/zhangxin840/weiboWasher/master/img/notifications.jpg "恼人的提示"
+
+[usage]: https://raw.github.com/zhangxin840/weiboWasher/master/img/popup.jpg "小巧方便"
 
