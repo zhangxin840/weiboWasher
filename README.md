@@ -27,7 +27,17 @@
 
 
 
-安装方法
+
+[Chrome Web Store 官方商店](https://chrome.google.com/webstore/detail/%E5%BE%AE%E5%8D%9A%E6%B4%97%E5%88%B7%E5%88%B7/pboegggfndemleaecklchlhmaaacbpoo)
+-----------
+
+推荐的安装方式，可自动升级。(需要谷歌ID)
+
+支持的浏览器：Chrome浏览器，360浏览器，360急速浏览器，猎豹浏览器
+
+
+
+其他安装方法
 ------------
 
 * 360浏览器，360急速浏览器，猎豹浏览器：
