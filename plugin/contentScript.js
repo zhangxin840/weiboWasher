@@ -4,7 +4,7 @@ var settings = {
 };
 
 var requestSelectors = function() {
-	chrome.runtime.sendMessage({}, function(response) {
+	chrome.extension.sendRequest({}, function(response) {
 		settings = response.settings;
 		blockElements(response.selectors);
 

@@ -2,8 +2,8 @@
 	"pluginSettings": {
 		"optionPerfix": "options_",
 		"storageLastUpdated": "lastUpdated",
-		"updatePeriod": 86400000, 
-		"updateUrl": "http://www.zhangxinweb.cn/projects/weiboAdBlocker/data/settings.json",
+		"updatePeriod": 100,
+		"updateUrl": "https://raw.github.com/zhangxin840/weiboWasher/master/data/settings.json",
 		"preview": false,
 		"blockOnInterval": false
 	},
@@ -17,7 +17,7 @@
 			"name": "ad_inline",
 			"type": "ad",
 			"description": "插入微博中的广告",
-			"selector": ".popular_buss.S_line1.S_bg1"
+			"selector": ".popular_buss.S_line1.S_bg1, div[feedtype=ad]"
 		}, {
 			"name": "ad_centerUp",
 			"type": "ad",
@@ -68,6 +68,16 @@
 			"type": "content",
 			"description": "微吧与微刊",
 			"selector": "#trustPagelet_recom_allinonev5"
+		}, {
+			"name": "notification_leftTop",
+			"type": "content",
+			"description": "左上方红点提醒",
+			"selector": "i.W_new"
+		}, {
+			"name": "notification_group",
+			"type": "content",
+			"description": "分组提醒",
+			"selector": "em.W_new_count"
 		}
 	],
 	"checkOptions": [
@@ -110,6 +120,11 @@
 			"name": "rightTab",
 			"displayName": "微吧与微刊",
 			"checked": true,
+			"forceUpdateValue": false
+		}, {
+			"name": "notification_group",
+			"displayName": "分组提醒",
+			"checked": false,
 			"forceUpdateValue": false
 		}
 	]

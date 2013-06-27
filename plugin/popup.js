@@ -135,7 +135,7 @@ setupOptions();
 
 // Google Analyse
 var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-XXXXXXXX-X']);
+_gaq.push(['_setAccount', 'UA-41995758-1']);
 _gaq.push(['_trackPageview']);
 
 (function() {
