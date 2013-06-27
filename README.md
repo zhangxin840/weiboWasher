@@ -23,8 +23,6 @@
 
 ####方便，开源，安全
 
-![alt text][usage]
-
 
 安装方法
 ------------
@@ -41,6 +39,13 @@
   * [右键另存此链接](https://github.com/zhangxin840/weiboWasher/raw/master/plugin.crx)
 
   * 将另存的文件拖入 设置-扩展程序页面
+
+
+
+使用
+------------
+
+![alt text][usage]
 
 
 参与开发
