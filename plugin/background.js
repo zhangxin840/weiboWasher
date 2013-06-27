@@ -206,7 +206,7 @@ var updateSettings = function() {
 				throw "Update settings data error";
 			}
 
-			setting = result;
+			settings = result;
 			saveSettingsToLocal();
 			saveOptionsToLocal();
 			storage[settings.pluginSettings.storageLastUpdated] = (new Date()).toString();
