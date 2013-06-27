@@ -77,7 +77,7 @@ var getLoaclOptions = function() {
 		if (reg.test(key)) {
 			if (key.indexOf("_displayName") < 0) {
 				option = {};
-				name = key.split("_")[1];
+				name = key.substring(key.indexOf("_") + 1);
 
 				option["name"] = name;
 				if (storage[key] === "true") {
@@ -94,7 +94,7 @@ var getLoaclOptions = function() {
 
 	for (key in localStorage) {
 		if (reg.test(key) && key.indexOf("_displayName") >= 0) {
-			name = key.split("_")[1];
+			name = key.substring(key.indexOf("_") + 1, key.lastIndexOf("_"))
 			for (innerIndex in options) {
 				if (options[innerIndex].name === name) {
 					options[innerIndex].displayName = localStorage[key];
