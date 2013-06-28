@@ -31,16 +31,16 @@
 [Chrome Web Store 官方商店](https://chrome.google.com/webstore/detail/%E5%BE%AE%E5%8D%9A%E6%B4%97%E5%88%B7%E5%88%B7/pboegggfndemleaecklchlhmaaacbpoo)
 -----------
 
-推荐的安装方式，可自动升级。(需要谷歌ID)
+推荐的安装方式，可自动升级 (需要谷歌ID)
 
-支持Chromium内核浏览器：![alt text][browser chrome]Chrome浏览器，![alt text][browser 360]360浏览器，![alt text][browser jisu]360极速浏览器，![alt text][browser liebao]猎豹浏览器：
+支持Chromium内核浏览器：![alt text][browser chrome]Chrome浏览器，![alt text][browser 360]360浏览器，![alt text][browser jisu]360极速浏览器，![alt text][browser liebao]猎豹浏览器
 
 
 
 [在线安装](https://github.com/zhangxin840/weiboWasher/raw/master/plugin.crx)
 ------------
 
-* ![alt text][browser 360]360浏览器，![alt text][browser jisu]360极速浏览器，![alt text][browser liebao]猎豹浏览器：
+* ![alt text][browser 360]360浏览器，![alt text][browser jisu]360极速浏览器，![alt text][browser liebao]猎豹浏览器
 
   * 点此[一键安装](https://github.com/zhangxin840/weiboWasher/raw/master/plugin.crx)
 
@@ -120,3 +120,4 @@ QQ: 116943915
 
 [browser liebao]: https://raw.github.com/zhangxin840/weiboWasher/master/img/browser-small-leibao.jpg "支持猎豹浏览器"
 
+[usage]: https://raw.github.com/zhangxin840/weiboWasher/master/img/popup.jpg "打开菜单"
