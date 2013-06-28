@@ -40,7 +40,7 @@
 [在线安装](https://github.com/zhangxin840/weiboWasher/raw/master/plugin.crx)
 ------------
 
-* ![alt text][browser 360]360浏览器，![alt text][browser jisu]360极速浏览器，![alt text][猎豹]猎豹浏览器：
+* ![alt text][browser 360]360浏览器，![alt text][browser jisu]360极速浏览器，![alt text][browser liebao]猎豹浏览器：
 
   * 点此[一键安装](https://github.com/zhangxin840/weiboWasher/raw/master/plugin.crx)
 
