@@ -112,7 +112,7 @@ QQ: 116943915
 
 [drag install]: https://raw.github.com/zhangxin840/weiboWasher/master/img/drag-install.jpg "拖拽安装"
 
-[browser chrome]: https://raw.github.com/zhangxin840/weiboWasher/master/img/browser-small-chrome.jpg "支持Chrome浏览器"
+[browser chrome]: https://github.com/zhangxin840/weiboWasher/blob/master/img/browser-small-chrome.png "支持Chrome浏览器"
 
 [browser 360]: https://raw.github.com/zhangxin840/weiboWasher/master/img/browser-small-360.jpg "支持360浏览器"
 
