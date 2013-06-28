@@ -33,7 +33,7 @@
 
 推荐的安装方式，可自动升级。(需要谷歌ID)
 
-支持Chromium内核浏览器：![alt text][browser chrome]Chrome浏览器，![alt text][browser 360]360浏览器，![alt text][browser jisu]360极速浏览器，![alt text][猎豹]猎豹浏览器：
+支持Chromium内核浏览器：![alt text][browser chrome]Chrome浏览器，![alt text][browser 360]360浏览器，![alt text][browser jisu]360极速浏览器，![alt text][browser liebao]猎豹浏览器：
 
 
 
