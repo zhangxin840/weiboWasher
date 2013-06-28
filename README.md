@@ -44,7 +44,7 @@
 
 * ![alt text][browser 360]360浏览器，![alt text][browser jisu]360极速浏览器，![alt text][browser liebao]猎豹浏览器
 
-  * 点此[一键安装](https://github.com/zhangxin840/weiboWasher/raw/master/plugin.crx)
+  * 点此[**一键安装**](https://github.com/zhangxin840/weiboWasher/raw/master/plugin.crx)
 
 
 拖拽安装
@@ -54,7 +54,9 @@
 
   * [右键另存此链接](https://github.com/zhangxin840/weiboWasher/raw/master/plugin.crx)
 
-  * 将另存的文件拖入 设置-扩展程序页面
+  * 点击 **右上角菜单按钮** 进入 **工具--扩展程序** 页面 (或在地址栏输入chrome://extensions/直接进入)
+  
+  * 将另存的插件文件拖入 **工具--扩展程序** 页面中 (拖入这个页面才能顺利安装，其他页面不行)
   
   * 如图所示：![alt text][drag install]
 
