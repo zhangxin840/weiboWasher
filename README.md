@@ -33,25 +33,28 @@
 
 推荐的安装方式，可自动升级。(需要谷歌ID)
 
-支持的浏览器：Chrome浏览器，360浏览器，360急速浏览器，猎豹浏览器
+支持Chromium内核浏览器：![alt text][browser chrome]Chrome浏览器，![alt text][browser 360]360浏览器，![alt text][browser jisu]360极速浏览器，![alt text][猎豹]猎豹浏览器：
 
 
 
-其他安装方法
+[在线安装](https://github.com/zhangxin840/weiboWasher/raw/master/plugin.crx)
 ------------
 
-* 360浏览器，360急速浏览器，猎豹浏览器：
+* ![alt text][browser 360]360浏览器，![alt text][browser jisu]360极速浏览器，![alt text][猎豹]猎豹浏览器：
 
-  * [插件在线安装](https://github.com/zhangxin840/weiboWasher/raw/master/plugin.crx)
-
-  * (或右键另存，拖入浏览器窗口安装)
+  * 点此[一键安装](https://github.com/zhangxin840/weiboWasher/raw/master/plugin.crx)
 
 
-* Chrome浏览器：
+拖拽安装
+------------
+
+* ![alt text][browser chrome]Chrome浏览器：
 
   * [右键另存此链接](https://github.com/zhangxin840/weiboWasher/raw/master/plugin.crx)
 
   * 将另存的文件拖入 设置-扩展程序页面
+  
+  * 如图所示：![alt text][drag install]
 
 
 
@@ -107,5 +110,13 @@ QQ: 116943915
 
 [notifications]: https://raw.github.com/zhangxin840/weiboWasher/master/img/notifications.jpg "恼人的提示"
 
-[usage]: https://raw.github.com/zhangxin840/weiboWasher/master/img/popup.jpg "小巧方便"
+[drag install]: https://raw.github.com/zhangxin840/weiboWasher/master/img/drag-install.jpg "拖拽安装"
+
+[browser chrome]: https://raw.github.com/zhangxin840/weiboWasher/master/img/browser-small-chrome.jpg "支持Chrome浏览器"
+
+[browser 360]: https://raw.github.com/zhangxin840/weiboWasher/master/img/browser-small-360.jpg "支持360浏览器"
+
+[browser jisu]: https://raw.github.com/zhangxin840/weiboWasher/master/img/browser-small-jisu.jpg "支持360极速浏览器"
+
+[browser liebao]: https://raw.github.com/zhangxin840/weiboWasher/master/img/browser-small-leibao.jpg "支持猎豹浏览器"
 
