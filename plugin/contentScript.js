@@ -16,11 +16,14 @@ var requestSelectors = function() {
 	});
 };
 
-var blockElements = function(selectors) {
+var blockElements = function(resultGetSelectors) {
 	var index;
 	var selector;
+	var jqSelector;
 	var style;
 	var $target;
+	var selectors = resultGetSelectors.selectors;
+	var jqSelectors = resultGetSelectors.jqSelectors;
 
 	if (settings.preview) {
 		for (index in selectors) {
@@ -45,15 +48,22 @@ var blockElements = function(selectors) {
 		return;
 	}
 
-	style = '<style type="text/css">'
-	style += selectors.join(", \n") + '\n';
-	style += '{ display: none !important }';
-	style += '</style>';
+	for (index in selectors) {
+		selector = selectors[index];
 
-	$("body").append(style);
+		style = '<style type="text/css">' + '\n';
+		style += selector + '\n';
+		style += '{ display: none !important }' + '\n';
+		style += '</style>';
 
-	console.log(style);
+		$("body").append(style);
+	}
+
+	for (index in jqSelectors) {
+		jqSelector = jqSelectors[index];
+		$(jqSelector).hide();
+	}	console.log(resultGetSelectors);
 };
 
 requestSelectors();
-
+

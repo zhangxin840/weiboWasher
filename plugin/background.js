@@ -56,7 +56,8 @@ var settings = {
 		name : "interestedPeople",
 		type : "content",
 		description : "右侧感兴趣的人",
-		selector : "#trustPagelet_recom_interestv5"
+		selector : "#trustPagelet_recom_interestv5",
+		jqSelector: "div.WB_right_module:has(a[href^=http://weibo.com/find/i])"
 	}, {
 		name : "recommendTopic",
 		type : "content",
@@ -66,7 +67,8 @@ var settings = {
 		name : "rightTab",
 		type : "content",
 		description : "微吧 微刊 应用推荐",
-		selector : "#trustPagelet_recom_allinonev5"
+		selector : "#trustPagelet_recom_allinonev5",
+		jqSelector :  "div.WB_right_module:has(a[href^=http://app.weibo.com/], a[href^=http://weiba.weibo.com/], a[href^=http://kan.weibo.com/])"
 	}, {
 		name : "notification_leftTop",
 		type : "content",
@@ -257,8 +259,11 @@ var getSelectors = function() {
 	var storage = localStorage;
 	var selector;
 	var index;
-	var selectors = [];
 	var block;
+	var result = {
+		selectors: [],
+		jqSelectors: []
+	};
 
 	if (!storage) {
 		throw "localStorage not available.";
@@ -278,11 +283,18 @@ var getSelectors = function() {
 		}
 
 		if (block === true) {
-			selectors.push(selector.selector);
+			if(selector.selector){
+				result.selectors.push(selector.selector);
+			}
+			
+			if(selector.jqSelector){
+				result.jqSelectors.push(selector.jqSelector);
+			}
+				
 		}
 	}
-
-	return selectors;
+	
+	return result;
 };
 
 var initialize = function() {

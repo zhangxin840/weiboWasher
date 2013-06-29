@@ -37,30 +37,6 @@ var generateOptions = function() {
 	}
 };
 
-// var syncLocalSettings = function() {
-// var storage = localStorage;
-// var index;
-// var option;
-// var options = checkOptions;
-// var prefix = storagePerfix;
-// var fullName;
-//
-// if (!storage) {
-// throw "localStorage not available.";
-// }
-//
-// for (index in options) {
-// option = options[index];
-// fullName = prefix + option.name;
-//
-// // localStorage store boolean as string
-// if (storage[fullName] === "true") {
-// option.checked = true;
-// } else if (storage[fullName] === "false") {
-// option.checked = false;
-// }
-// }
-// };
 var getLoaclOptions = function() {
 	var reg = new RegExp('^' + storagePerfix);
 	var storage = localStorage;
