@@ -11,7 +11,7 @@ var settings = {
 		name : "ad_activity",
 		type : "ad",
 		description : "右侧关于活动的广告",
-		selector : "#pl_rightmod_ads35"
+		selector : "#pl_rightmod_ads35, div#trustPagelet_indexright_recom div[ucardconf^=type][ad-data^=id]"
 	}, {
 		name : "ad_inline",
 		type : "ad",
@@ -56,7 +56,7 @@ var settings = {
 		name : "interestedPeople",
 		type : "content",
 		description : "右侧感兴趣的人",
-		selector : "#trustPagelet_recom_interestv5"
+		selector : "#trustPagelet_recom_interestv5, div.WB_right_module:has(a[href^=http://weibo.com/find/i])"
 	}, {
 		name : "recommendTopic",
 		type : "content",
@@ -65,8 +65,8 @@ var settings = {
 	}, {
 		name : "rightTab",
 		type : "content",
-		description : "微吧与微刊",
-		selector : "#trustPagelet_recom_allinonev5"
+		description : "微吧 微刊 应用推荐",
+		selector : "#trustPagelet_recom_allinonev5, div.WB_right_module:has(a[href^=http://app.weibo.com/], a[href^=http://weiba.weibo.com/], a[href^=http://kan.weibo.com/])"
 	}, {
 		name : "notification_leftTop",
 		type : "content",
@@ -115,7 +115,7 @@ var settings = {
 		forceUpdateValue : false
 	}, {
 		name : "rightTab",
-		displayName : "微吧与微刊",
+		displayName : "微吧 微刊 应用推荐",
 		checked : true,
 		forceUpdateValue : false
 	}, {

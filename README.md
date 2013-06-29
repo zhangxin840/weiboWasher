@@ -107,7 +107,7 @@ QQ: 116943915
 
 
 
-[logo]: https://raw.github.com/zhangxin840/weiboWasher/master/img/rabbit.png "微博洗刷刷"
+[logo]: https://raw.github.com/zhangxin840/weiboWasher/master/img/weiboWasher-300.png "微博洗刷刷"
 
 [inline ad]: https://raw.github.com/zhangxin840/weiboWasher/master/img/inlineAds.jpg "微博中的广告"
 
