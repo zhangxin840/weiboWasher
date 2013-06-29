@@ -56,7 +56,7 @@ var settings = {
 		name : "interestedPeople",
 		type : "content",
 		description : "右侧感兴趣的人",
-		selector : "#trustPagelet_recom_interestv5, div.WB_right_module:has(a[href^=http://weibo.com/find/i])"
+		selector : "#trustPagelet_recom_interestv5"
 	}, {
 		name : "recommendTopic",
 		type : "content",
@@ -66,7 +66,7 @@ var settings = {
 		name : "rightTab",
 		type : "content",
 		description : "微吧 微刊 应用推荐",
-		selector : "#trustPagelet_recom_allinonev5, div.WB_right_module:has(a[href^=http://app.weibo.com/], a[href^=http://weiba.weibo.com/], a[href^=http://kan.weibo.com/])"
+		selector : "#trustPagelet_recom_allinonev5"
 	}, {
 		name : "notification_leftTop",
 		type : "content",
