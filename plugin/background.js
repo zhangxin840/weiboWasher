@@ -57,7 +57,7 @@ var settings = {
 		type : "content",
 		description : "右侧感兴趣的人",
 		selector : "#trustPagelet_recom_interestv5",
-		jqSelector: "div.WB_right_module:has(a[href^=http://weibo.com/find/i])"
+		jqSelector: "div.WB_right_module:has(a[href^='http://weibo.com/find/i'])"
 	}, {
 		name : "recommendTopic",
 		type : "content",
@@ -68,7 +68,7 @@ var settings = {
 		type : "content",
 		description : "微吧 微刊 应用推荐",
 		selector : "#trustPagelet_recom_allinonev5",
-		jqSelector :  "div.WB_right_module:has(a[href^=http://app.weibo.com/], a[href^=http://weiba.weibo.com/], a[href^=http://kan.weibo.com/])"
+		jqSelector :  "div.WB_right_module:has(a[href^='http://app.weibo.com/'], a[href^='http://weiba.weibo.com/'], a[href^='http://kan.weibo.com/'])"
 	}, {
 		name : "notification_leftTop",
 		type : "content",
