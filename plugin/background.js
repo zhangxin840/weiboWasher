@@ -41,7 +41,8 @@ var settings = {
 		name : "hotTopic",
 		type : "content",
 		description : "右侧热门话题",
-		selector : "#trustPagelet_zt_hottopicv5"
+		selector : "#trustPagelet_zt_hottopicv5",
+		jqSelector: "div.WB_right_module:has(a[href^='http://huati.weibo.com/'])"
 	}, {
 		name : "announcement",
 		type : "content",

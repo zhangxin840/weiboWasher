@@ -62,15 +62,21 @@ var blockElements = function(resultGetSelectors) {
 	for (index in jqSelectors) {
 		jqSelector = jqSelectors[index];
 		$(jqSelector).hide();
-		
-		$('#Box_right').on('DOMSubtreeModified',function(){
-			$(jqSelector).hide();
-		});
-		
-		$(document).ready(function(){
-			$(jqSelector).hide();
-		});
-	}	console.log(resultGetSelectors);
+	}
+	
+	$('#Box_right').on('DOMSubtreeModified',function(){
+		var index;
+		for (index in jqSelectors) {
+			$(jqSelectors[index]).hide();
+		}
+	});
+	
+	$(document).ready(function(){
+		var index;
+		for (index in jqSelectors) {
+			$(jqSelectors[index]).hide();
+		}
+	});	console.log(resultGetSelectors);
 };
 
 requestSelectors();
