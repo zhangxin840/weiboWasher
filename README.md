@@ -44,7 +44,7 @@
 
 * ![alt text][browser 360]360浏览器，![alt text][browser jisu]360极速浏览器，![alt text][browser liebao]猎豹浏览器
 
-  * 点此[**一键安装**](https://github.com/zhangxin840/weiboWasher/raw/master/plugin.crx)
+  * 点此[一键安装](https://github.com/zhangxin840/weiboWasher/raw/master/plugin.crx)
 
 
 拖拽安装
@@ -107,7 +107,7 @@ QQ: 116943915
 
 
 
-[logo]: https://raw.github.com/zhangxin840/weiboWasher/master/img/weiboWasher-300.png "微博洗刷刷"
+[logo]: https://raw.github.com/zhangxin840/weiboWasher/master/img/rabbit.png "微博洗刷刷"
 
 [inline ad]: https://raw.github.com/zhangxin840/weiboWasher/master/img/inlineAds.jpg "微博中的广告"
 
