@@ -26,6 +26,9 @@
 ####方便，开源，安全
 
 
+v1.4.0更新：
+
+使用JSHint检查代码质量, 增加了更新提示。
 
 
 [Chrome Web Store 官方商店](https://chrome.google.com/webstore/detail/%E5%BE%AE%E5%8D%9A%E6%B4%97%E5%88%B7%E5%88%B7/pboegggfndemleaecklchlhmaaacbpoo)
@@ -37,6 +40,11 @@
 
 * 例如：![alt text][browser chrome]Chrome浏览器，![alt text][browser 360]360浏览器，![alt text][browser jisu]360极速浏览器，![alt text][browser liebao]猎豹浏览器
 
+
+[360应用市场](https://ext.se.360.cn/webstore/detail/jadapobopodjfiejmojonpofmmgcbgef)
+-----------
+
+* 适合![alt text][browser 360]360浏览器
 
 
 [在线安装](https://github.com/zhangxin840/weiboWasher/raw/master/plugin.crx)
@@ -77,7 +85,6 @@ data / settings.json 为实时更新的配置文件
 开发者可修改settings.json来更正过滤规则
 
 [Chrome扩展开发手册](https://developer.chrome.com/extensions/getstarted.html)
-
 
 
 作者

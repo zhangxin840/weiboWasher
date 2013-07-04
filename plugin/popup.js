@@ -1,136 +1,165 @@
-var storagePerfix = "options_";
+/* jshint jquery: true */
+/* jshint devel: true */
+/* global chrome: false */
 
-// Sample data
-var checkOptions = [{
-	name : "recommend",
-	displayName : "推荐内容",
-	checked : true,
-}, {
-	name : "related",
-	displayName : "相关搜索",
-	checked : false,
-}];
+(function() {"use strict";
 
-var generateOptions = function() {
-	var newOption;
-	var index;
-	var option;
-	var options = checkOptions;
+    var STORAGE_PERFIX = "options_";
 
-	for (index in options) {
-		option = options[index];
+    // Sample data
+    var CHECK_OPTIONS = [{
+        name : "recommend",
+        displayName : "推荐内容",
+        checked : true,
+    }, {
+        name : "related",
+        displayName : "相关搜索",
+        checked : false,
+    }];
 
-		if (!option.name || ( typeof option.checked === "undefined") || !option.displayName) {
-			console.log("Option data error");
-		} else {
-			newOption = $("#options .js-optionContainer.js-template").clone().removeClass("js-template");
-			newOption.find("label").attr("for", option.name);
-			newOption.find("label").html(option.displayName);
-			if (option.checked) {
-				newOption.find("input").prop('checked', true);
-			} else {
-				newOption.find("input").prop('checked', false);
-			}
-			newOption.find("input").attr("name", option.name);
-			$("#options").append(newOption);
-		}
-	}
-};
+    var generateOptions = function() {
+        var newOption;
+        var index;
+        var option;
+        var options = CHECK_OPTIONS;
 
-var getLoaclOptions = function() {
-	var reg = new RegExp('^' + storagePerfix);
-	var storage = localStorage;
-	var options = [];
-	var option;
-	var name;
-	var innerIndex;
+        for (index in options) {
+            if (options.hasOwnProperty(index)) {
+                option = options[index];
+                if (!option.name || ( typeof option.checked === "undefined") || !option.displayName) {
+                    console.log("Option data error");
+                } else {
+                    newOption = $("#options .js-optionContainer.js-template").clone().removeClass("js-template");
+                    newOption.find("label").attr("for", option.name);
+                    newOption.find("label").html(option.displayName);
+                    if (option.checked) {
+                        newOption.find("input").prop('checked', true);
+                    } else {
+                        newOption.find("input").prop('checked', false);
+                    }
+                    newOption.find("input").attr("name", option.name);
+                    $("#options").append(newOption);
+                }
+            }
+        }
+    };
 
-	if (!storage) {
-		throw "localStorage not available.";
-	}
+    var getLoaclOptions = function() {
+        var reg = new RegExp('^' + STORAGE_PERFIX);
+        var storage = localStorage;
+        var options = [];
+        var option;
+        var name;
+        var innerIndex;
+        var key;
 
-	for (key in localStorage) {
-		if (reg.test(key)) {
-			if (key.indexOf("_displayName") < 0) {
-				option = {};
-				name = key.substring(key.indexOf("_") + 1);
+        if (!storage) {
+            throw "localStorage not available.";
+        }
 
-				option["name"] = name;
-				if (storage[key] === "true") {
-					option["checked"] = true;
-				} else if (storage[key] === "false") {
-					option["checked"] = false;
-				}
+        for (key in localStorage) {
+            if (localStorage.hasOwnProperty(key)) {
+                if (reg.test(key)) {
+                    if (key.indexOf("_displayName") < 0) {
+                        option = {};
+                        name = key.substring(key.indexOf("_") + 1);
 
-				options.push(option);
-			}
+                        option.name = name;
+                        if (storage[key] === "true") {
+                            option.checked = true;
+                        } else if (storage[key] === "false") {
+                            option.checked = false;
+                        }
 
-		}
-	}
+                        options.push(option);
+                    }
 
-	for (key in localStorage) {
-		if (reg.test(key) && key.indexOf("_displayName") >= 0) {
-			name = key.substring(key.indexOf("_") + 1, key.lastIndexOf("_"))
-			for (innerIndex in options) {
-				if (options[innerIndex].name === name) {
-					options[innerIndex].displayName = localStorage[key];
-				}
-			}
+                }
+            }
+        }
 
-		}
-	}
+        for (key in localStorage) {
+            if (localStorage.hasOwnProperty(key)) {
+                if (reg.test(key) && key.indexOf("_displayName") >= 0) {
+                    name = key.substring(key.indexOf("_") + 1, key.lastIndexOf("_"));
+                    for (innerIndex in options) {
+                        if (options.hasOwnProperty(innerIndex)) {
+                            if (options[innerIndex].name === name) {
+                                options[innerIndex].displayName = localStorage[key];
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
-	checkOptions = options;
-};
+        CHECK_OPTIONS = options;
+    };
 
-var setupOptions = function() {
-	var $options = $(".js-optionContainer").not(".js-template");
+    var setupOptions = function() {
+        $("#options").on("click", "input", optionCheckChanged);
+    };
 
-	$("#options").on("click", "input", optionCheckChanged);
-};
+    var optionCheckChanged = function() {
+        var storage = localStorage;
+        var fullName = STORAGE_PERFIX + $(this).attr("name");
+        
+        if (!storage) {
+            throw "localStorage not available.";
+        }
 
-var optionCheckChanged = function() {
-	var storage = localStorage;
-	var fullName = storagePerfix + $(this).attr("name");
+        if ($(this).prop('checked')) {
+            storage[fullName] = "true";
 
-	if (!storage) {
-		throw "localStorage not available.";
-	}
+        } else {
+            storage[fullName] = "false";
+        }
+    };
+    
+    var getPluginVersion = function() {
+        chrome.extension.sendRequest({}, function(response) {
+            var settingsVersion = response.settings.settingsVersion;
+            var pluginVersion = response.pluginVersion;
+            
+            setupUpdateLinks(pluginVersion, settingsVersion);      
+        });
+    };
+    
+    var setupUpdateLinks = function(pluginVersion, settingsVersion) {
+        $("#versionNumber").html("v" + pluginVersion);
+        if(pluginVersion !== settingsVersion){
+            $("#link_projectPage").show();
+        }
+    };
+    
+    
+    getLoaclOptions();
+    generateOptions();
+    setupOptions();
+    getPluginVersion();
 
-	if ($(this).prop('checked')) {
-		storage[fullName] = "true";
+    // Google Analyse
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-41995758-1']);
+    _gaq.push(['_trackPageview']);
 
-	} else {
-		storage[fullName] = "false";
-	}
-};
+    (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = 'https://ssl.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
 
-getLoaclOptions();
-generateOptions();
-setupOptions();
+    // Track UI
+    function trackUi(e) {
+        _gaq.push(['_trackEvent', e.target.getAttribute("name"), 'clicked']);
+    }
 
-// Google Analyse
-var _gaq = _gaq || [];
-_gaq.push(['_setAccount', 'UA-41995758-1']);
-_gaq.push(['_trackPageview']);
+    (function() {
+        $("[name]").click(trackUi);
+    })();
 
-(function() {
-	var ga = document.createElement('script');
-	ga.type = 'text/javascript';
-	ga.async = true;
-	ga.src = 'https://ssl.google-analytics.com/ga.js';
-	var s = document.getElementsByTagName('script')[0];
-	s.parentNode.insertBefore(ga, s);
 })();
-
-// Track UI
-function trackUi(e) {
-    _gaq.push(['_trackEvent', e.target.getAttribute("name"), 'clicked']);
-};
-
-(function() {
-	$("[name]").click(trackUi);
-})();
-
-
 

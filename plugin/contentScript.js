@@ -1,83 +1,103 @@
-var settings = {
-	preview : true,
-	blockOnInterval : true
-};
+/* global chrome: false */
+/* jshint jquery: true */
+/* jshint devel: true */
 
-var requestSelectors = function() {
-	chrome.extension.sendRequest({}, function(response) {
-		settings = response.settings;
-		blockElements(response.selectors);
+(function() {"use strict";
 
-		if (settings.blockOnInterval) {
-			setInterval(function() {
-				blockElements(response.selectors);
-			}, 1000);
-		}
-	});
-};
+    var SETTINGS = {
+        preview : true,
+        blockOnInterval : true
+    };
 
-var blockElements = function(resultGetSelectors) {
-	var index;
-	var selector;
-	var jqSelector;
-	var style;
-	var $target;
-	var selectors = resultGetSelectors.selectors;
-	var jqSelectors = resultGetSelectors.jqSelectors;
+    var requestSelectors = function() {
+        chrome.extension.sendRequest({}, function(response) {
+            SETTINGS = response.settings;
+            blockElements(response.selectors);
 
-	if (settings.preview) {
-		for (index in selectors) {
-			$target = $(selectors[index])
-			if ($target.attr("blocked") !== "true") {
-				$target.css({
-					position : "relative",
-					backgroundColor : "rgba(255, 0, 0, .6)"
-				}).attr("blocked", "true");
+            if (SETTINGS.blockOnInterval) {
+                setInterval(function() {
+                    blockElements(response.selectors);
+                }, 1000);
+            }
+        });
+    };
 
-				$("<div>").css({
-					position : "absolute",
-					backgroundColor : "rgba(255, 0, 0, .4)",
-					top : 0,
-					left : 0,
-					width : "100%",
-					height : "100%",
-					zindex : 10000
-				}).appendTo($target);
-			}
-		}
-		return;
-	}
+    var blockElements = function(resultGetSelectors) {
+        var index;
+        var selector;
+        var jqSelector;
+        var style;
+        var $target;
+        var selectors = resultGetSelectors.selectors;
+        var jqSelectors = resultGetSelectors.jqSelectors;
 
-	for (index in selectors) {
-		selector = selectors[index];
+        if (SETTINGS.preview) {
+            for (index in selectors) {
+                if (selectors.hasOwnProperty(index)) {
+                    $target = $(selectors[index]);
+                    if ($target.attr("blocked") !== "true") {
+                        $target.css({
+                            position : "relative",
+                            backgroundColor : "rgba(255, 0, 0, .6)"
+                        }).attr("blocked", "true");
 
-		style = '<style type="text/css">' + '\n';
-		style += selector + '\n';
-		style += '{ display: none !important }' + '\n';
-		style += '</style>';
+                        $("<div>").css({
+                            position : "absolute",
+                            backgroundColor : "rgba(255, 0, 0, .4)",
+                            top : 0,
+                            left : 0,
+                            width : "100%",
+                            height : "100%",
+                            zindex : 10000
+                        }).appendTo($target);
+                    }
+                }
+            }
+            return;
+        }
 
-		$("body").append(style);
-	}
+        for (index in selectors) {
+            if (selectors.hasOwnProperty(index)) {
+                selector = selectors[index];
 
-	for (index in jqSelectors) {
-		jqSelector = jqSelectors[index];
-		$(jqSelector).hide();
-	}
-	
-	$('#Box_right').on('DOMSubtreeModified',function(){
-		var index;
-		for (index in jqSelectors) {
-			$(jqSelectors[index]).hide();
-		}
-	});
-	
-	$(document).ready(function(){
-		var index;
-		for (index in jqSelectors) {
-			$(jqSelectors[index]).hide();
-		}
-	});	console.log(resultGetSelectors);
-};
+                style = '<style type="text/css">' + '\n';
+                style += selector + '\n';
+                style += '{ display: none !important }' + '\n';
+                style += '</style>';
 
-requestSelectors();
-
+                $("body").append(style);
+            }
+        }
+
+        for (index in jqSelectors) {
+            if (jqSelectors.hasOwnProperty(index)) {
+                jqSelector = jqSelectors[index];
+                $(jqSelector).hide();
+            }
+        }
+
+        $('#Box_right').on('DOMSubtreeModified', function() {
+            var index;
+            for (index in jqSelectors) {
+                if (jqSelectors.hasOwnProperty(index)) {
+                    $(jqSelectors[index]).hide();
+                }
+            }
+        });
+
+        $(document).ready(function() {
+            var index;
+            for (index in jqSelectors) {
+                if (jqSelectors.hasOwnProperty(index)) {
+                    $(jqSelectors[index]).hide();
+                }
+            }
+        });
+
+        console.log(resultGetSelectors);
+    };
+
+    requestSelectors();
+
+})();
+
