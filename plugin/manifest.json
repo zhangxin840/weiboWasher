@@ -1,6 +1,6 @@
 ﻿{
 	"name": "微博洗刷刷",
-	"version": "1.4.0",
+	"version": "1.4.1",
 	"description": "去除微博中的广告，清理不感兴趣的内容。无需设置，不改变微博原貌。开源插件，安全可靠。",
 	"background": {
 		"scripts": ["background.js"]

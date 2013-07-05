@@ -1,7 +1,7 @@
 /* global chrome: false */
 
 (function() {"use strict";
-    var PLUGIN_VERSION = "1.4.0";
+    var PLUGIN_VERSION = "1.4.1";
     
     var SETTINGS = {
         pluginSettings : {
@@ -11,7 +11,7 @@
             updateUrl : "https://raw.github.com/zhangxin840/weiboWasher/master/data/settings.json",
             preview : false,
             blockOnInterval : false,
-            settingsVersion : "1.4.0"
+            settingsVersion : "1.4.1"
         },
         blockSelectors : [{
             name : "ad_activity",
@@ -87,7 +87,7 @@
             description : "分组提醒",
             selector : "em.W_new_count"
         }, {
-            name : "friendFuns",
+            name : "inlineRecommend",
             type : "content",
             description : "微博中插入的好友关注推荐,好友在听",
             selector : "div.WB_feed_type.SW_fun.W_no_border.S_line2"
@@ -138,8 +138,8 @@
             checked : false,
             forceUpdateValue : false
         }, {
-            name : "friendFuns",
-            displayName : "好友关注",
+            name : "inlineRecommend",
+            displayName : "嵌入微博中的推荐",
             checked : false,
             forceUpdateValue : false
         }]

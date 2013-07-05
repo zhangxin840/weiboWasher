@@ -26,9 +26,9 @@
 ####方便，开源，安全
 
 
-v1.4.0更新：
+v1.4.1更新：
 
-使用JSHint检查代码质量, 增加了更新提示。
+更新了过滤选项，优化了微博分享按钮
 
 
 [Chrome Web Store 官方商店](https://chrome.google.com/webstore/detail/%E5%BE%AE%E5%8D%9A%E6%B4%97%E5%88%B7%E5%88%B7/pboegggfndemleaecklchlhmaaacbpoo)
@@ -45,6 +45,12 @@ v1.4.0更新：
 -----------
 
 * 适合![alt text][browser 360]360浏览器
+
+
+[360极速浏览器应用市场](https://ext.chrome.360.cn/webstore/detail/jadapobopodjfiejmojonpofmmgcbgef)
+-----------
+
+* 适合![alt text][browser jisu]360极速浏览器
 
 
 [在线安装](https://github.com/zhangxin840/weiboWasher/raw/master/plugin.crx)
@@ -103,7 +109,7 @@ data / settings.json 为实时更新的配置文件
 QQ: 116943915
 
 
-[微博分享](http://v.t.sina.com.cn/share/share.php?&url=http://zhangxin840.github.io/weiboWasher/&title=微博洗刷刷： 去除微博中的广告，屏蔽自己不感兴趣的内容。小巧方便，无需繁琐设置，不改变微博原貌。开源插件，安全可靠。&pic=https://raw.github.com/zhangxin840/weiboWasher/master/img/weiboWasher-300.png&ralateUid=1955199891)
+[微博分享](http://v.t.sina.com.cn/share/share.php?&url=http://zhangxin840.github.io/weiboWasher/&title=推荐一个微博净化插件，“微博洗刷刷”。去广告，还能清理不感兴趣的栏目，方便无需设置。插件是开源的。&pic=https://raw.github.com/zhangxin840/weiboWasher/master/img/weiboWasher-300.png&ralateUid=1955199891)
 ----------
 
 
