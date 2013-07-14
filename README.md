@@ -3,6 +3,7 @@
 
 ![alt text][logo]
 
+目前最简单好用的微博净化插件
 
 ####清理微博中的广告
 
@@ -26,9 +27,9 @@
 ####方便，开源，安全
 
 
-v1.4.1更新：
+v1.5.0更新：
 
-更新了过滤选项，优化了微博分享按钮
+增强了动态内容的过滤
 
 
 [Chrome Web Store 官方商店](https://chrome.google.com/webstore/detail/%E5%BE%AE%E5%8D%9A%E6%B4%97%E5%88%B7%E5%88%B7/pboegggfndemleaecklchlhmaaacbpoo)

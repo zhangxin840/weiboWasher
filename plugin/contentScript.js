@@ -76,7 +76,7 @@
             }
         }
 
-        $('#Box_right').on('DOMSubtreeModified', function() {
+        $('#plc_main').on('DOMSubtreeModified', function() {
             var index;
             for (index in jqSelectors) {
                 if (jqSelectors.hasOwnProperty(index)) {

@@ -6,7 +6,7 @@
         "updateUrl": "https://raw.github.com/zhangxin840/weiboWasher/master/data/settings.json",
         "preview": false,
         "blockOnInterval": false,
-        "settingsVersion": "1.4.1"
+        "settingsVersion": "1.5.0"
     },
     "blockSelectors": [
         {

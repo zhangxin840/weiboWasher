@@ -1,7 +1,7 @@
 /* global chrome: false */
 
 (function() {"use strict";
-    var PLUGIN_VERSION = "1.4.1";
+    var PLUGIN_VERSION = "1.5.0";
     
     var SETTINGS = {
         pluginSettings : {
@@ -11,7 +11,7 @@
             updateUrl : "https://raw.github.com/zhangxin840/weiboWasher/master/data/settings.json",
             preview : false,
             blockOnInterval : false,
-            settingsVersion : "1.4.1"
+            settingsVersion : "1.5.0"
         },
         blockSelectors : [{
             name : "ad_activity",
