@@ -73,6 +73,11 @@
             "selector": "#trustPagelet_recom_allinonev5",
             "jqSelector": "div.WB_right_module:has(a[href^='http://app.weibo.com/'], a[href^='http://weiba.weibo.com/'], a[href^='http://kan.weibo.com/'])"
         }, {
+            "name": "rightRecommend",
+            "type": "content",
+            "description": "图书 地点 电影推荐",
+            "jqSelector": "div.WB_right_module:has(a[suda-uatrack*='_book_'], a[suda-uatrack*='_lbs_'], a[suda-uatrack*='_mov_'])"
+        },{
             "name": "notification_leftTop",
             "type": "content",
             "description": "左上方红点提醒",
@@ -139,6 +144,11 @@
             "name": "inlineRecommend",
             "displayName": "嵌入微博中的推荐",
             "checked": false,
+            "forceUpdateValue": false
+        },{
+            "name": "rightRecommend",
+            "displayName": "图书 地点 电影推荐",
+            "checked": true,
             "forceUpdateValue": false
         }
     ]
